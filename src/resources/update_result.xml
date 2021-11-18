@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<alumnos_tbl id="001" nombre="alumno001" email="hola1@hola.com" edad="15" />
+	<alumnos_tbl id="002" nombre="alumno002" email="hola2@hola.com" edad="16" />
+	<alumnos_tbl id="003" nombre="alumno003" email="hola003@gmail.com" edad="17" />
+</dataset>
