@@ -32,7 +32,7 @@ public class mernCRUDTest {
 	public void setUp() throws Exception {
 		WebDriverManager.chromedriver().setup();
 	    driver = new ChromeDriver();
-	    baseUrl = "https://mern-crud.herokuapp.com/";
+	    baseUrl = "http://localhost:3000/";
 	    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	    js = (JavascriptExecutor) driver;
 	  }
@@ -51,13 +51,13 @@ public class mernCRUDTest {
 	 @Test
 	 public void testmernAdd() throws Exception {
 		// Get the base URL
-		driver.get("https://mern-crud.herokuapp.com/");
+		driver.get("http://localhost:3000/");
 		// Action click on Add New
 	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();//"//div[@id='root']/div/div[2]/button"
 	    // Set name field
 	    driver.findElement(By.name("name")).click();
 	    driver.findElement(By.name("name")).clear();
-	    driver.findElement(By.name("name")).sendKeys("Leo G");
+	    driver.findElement(By.name("name")).sendKeys("Leo");
 	    // Set email field 
 	    driver.findElement(By.name("email")).click();
 	    driver.findElement(By.name("email")).clear();
@@ -65,7 +65,7 @@ public class mernCRUDTest {
 	    // Set age field
 	    driver.findElement(By.name("age")).click();
 	    driver.findElement(By.name("age")).clear();
-	    driver.findElement(By.name("age")).sendKeys("20");
+	    driver.findElement(By.name("age")).sendKeys("34");
 	    // Set gender field
 	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
 	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::span[1]")).click();
@@ -77,11 +77,12 @@ public class mernCRUDTest {
 	    assertThat("Nice one!", is(tag));
 	 }
 	 
+	 
 	 // Delete person tests
 	 @Test
 	 public void testmernDelete() throws Exception {
 		// Get the base URL
-		driver.get("https://mern-crud.herokuapp.com/");
+		driver.get("http://localhost:3000/");
 	    // Action on Delete 
 	    driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[5]/button[2]")).click(); 
 	    // Action on Yes 
@@ -89,7 +90,7 @@ public class mernCRUDTest {
 	    // Make a pause in order for the server to catch up with the code
 	    pause(5000);
 	    String FirstUser = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr/td[1]")).getText();
-	    assertThat("Leo Garcia", is(not(FirstUser)));
+	    assertThat("Leo G", is(not(FirstUser)));
 
 	 }
 	 
@@ -97,7 +98,7 @@ public class mernCRUDTest {
 	 @Test
 	 public void testmernUpdate() throws Exception {
 		// Get the base URL
-		driver.get("https://mern-crud.herokuapp.com/");
+		driver.get("http://localhost:3000/");
 	    // Action on Edit
 	    driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[5]/button[1]")).click(); 
 	    // Update email field 
@@ -126,13 +127,13 @@ public class mernCRUDTest {
 		 String Genero = "m"; 
 		 
 		 // Get the base URL
-		 driver.get("https://mern-crud.herokuapp.com/");
+		 driver.get("http://localhost:3000/");
 		 
 		 // Retrieve values of the table
-		 String RetrievedName = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[1]")).getText();
-		 String RetrievedEmail = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[2]")).getText(); 
-		 String RetrievedEdad = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[3]")).getText(); 
-		 String RetrievedGenero = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[4]")).getText(); 
+		 String RetrievedName = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[1]")).getText();
+		 String RetrievedEmail = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[2]")).getText(); 
+		 String RetrievedEdad = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[3]")).getText(); 
+		 String RetrievedGenero = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[4]")).getText(); 
 	    
 	    // Make a pause in order for the server to catch up with the code
 	    pause(5000);
