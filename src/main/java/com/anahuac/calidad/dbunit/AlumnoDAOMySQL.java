@@ -1,4 +1,4 @@
-package com.anahuac.calidad.DBUnit;
+package com.anahuac.calidad.dbunit;
 
 import java.sql.DriverManager;
 import java.sql.Connection;

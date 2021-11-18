@@ -1,4 +1,4 @@
-package com.anahuac.calidad.DBUnit;
+package com.anahuac.calidad.dbunit;
 
 import static org.junit.Assert.*;
 // FIle Imports
@@ -22,6 +22,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.anahuac.calidad.DoublesDAO.Alumno;
+import com.anahuac.calidad.dbunit.AlumnoDAOMySQL;
 
 public class DAOALumnoTest extends DBTestCase{
 	

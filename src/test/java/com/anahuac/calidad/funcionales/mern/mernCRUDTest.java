@@ -1,4 +1,4 @@
-package com.anahuac.calidad.CRUDFuncionales;
+package com.anahuac.calidad.funcionales.mern;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
