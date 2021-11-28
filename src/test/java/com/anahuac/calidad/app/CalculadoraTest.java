@@ -43,14 +43,14 @@ public class CalculadoraTest {
 		// Verify
 		Assert.assertEquals(resEsperado, resEjecucion, .01); */
 		
-		
+		// Nuevo comenatrio
 		// Using HamCrest 
 		// Set the value we are waiting for
 		double resEsperado = 4; 
 				
 		// Exercise code to run and test
 		double resEjecucion = miCalculadora.suma(2.0f, 2.0f);
-				
+		System.out.println(resEjecucion);		
 		// Verify
 		assertThat(resEsperado, is(closeTo(resEjecucion, .01))); 
 		
