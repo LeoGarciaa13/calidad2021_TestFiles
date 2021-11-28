@@ -81,6 +81,8 @@ public class mernCRUDTest {
 	 // Delete person tests
 	 @Test
 	 public void testmernDelete() throws Exception {
+		// Include a student for a delete 
+		includeStudent();
 		// Get the base URL
 		driver.get("http://localhost:3000/");
 	    // Action on Delete 
@@ -97,6 +99,8 @@ public class mernCRUDTest {
 	 // Update person tests
 	 @Test
 	 public void testmernUpdate() throws Exception {
+		// Include a student for the update
+		includeStudent();
 		// Get the base URL
 		driver.get("http://localhost:3000/");
 	    // Action on Edit
@@ -120,9 +124,11 @@ public class mernCRUDTest {
 	// Search person fields
 	 @Test
 	 public void testmernSearch() throws Exception {
+		 // Include a Student for the search
+		 includeStudent();
 		 // Expected values
-		 String Name = "Leo G";
-		 String Email = "gleo@gmail.com";
+		 String Name = "Leo Garcia";
+		 String Email = "gleo2519@gmail.com";
 		 String Edad = "20";
 		 String Genero = "m"; 
 		 
@@ -130,10 +136,10 @@ public class mernCRUDTest {
 		 driver.get("http://localhost:3000/");
 		 
 		 // Retrieve values of the table
-		 String RetrievedName = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[1]")).getText();
-		 String RetrievedEmail = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[2]")).getText(); 
-		 String RetrievedEdad = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[3]")).getText(); 
-		 String RetrievedGenero = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[2]/td[4]")).getText(); 
+		 String RetrievedName = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[1]")).getText();
+		 String RetrievedEmail = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[2]")).getText(); 
+		 String RetrievedEdad = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[3]")).getText(); 
+		 String RetrievedGenero = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[4]")).getText(); 
 	    
 	    // Make a pause in order for the server to catch up with the code
 	    pause(5000);
@@ -145,6 +151,30 @@ public class mernCRUDTest {
 
 	 }
 	 
+	 private void includeStudent() {
+		// Get the base URL
+ 		driver.get("http://localhost:3000/");
+ 		// Action click on Add New
+ 	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();//"//div[@id='root']/div/div[2]/button"
+ 	    // Set name field
+ 	    driver.findElement(By.name("name")).click();
+ 	    driver.findElement(By.name("name")).clear();
+ 	    driver.findElement(By.name("name")).sendKeys("Leo Garcia");
+ 	    // Set email field 
+ 	    driver.findElement(By.name("email")).click();
+ 	    driver.findElement(By.name("email")).clear();
+ 	    driver.findElement(By.name("email")).sendKeys("gleo2519@gmail.com");
+ 	    // Set age field
+ 	    driver.findElement(By.name("age")).click();
+ 	    driver.findElement(By.name("age")).clear();
+ 	    driver.findElement(By.name("age")).sendKeys("20");
+ 	    // Set gender field
+ 	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
+ 	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::span[1]")).click();
+ 	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
+ 	    //Make a pause in order for the server to catch up with the code
+	    pause(5000);
+	 }
 
 	 private boolean isElementPresent(By by) {
 		 try {
